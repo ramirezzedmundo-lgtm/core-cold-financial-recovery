@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CORE-COLD Demo</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <!-- Slide 1: Origen inesperado -->
+  <section class="card">
+    <h2>El origen inesperado</h2>
+    <p>CORE-COLD nació en una Xbox One S. 
+    Si puede proteger en hardware obsoleto, imaginen lo que hace en su empresa.</p>
+  </section>
+
+  <!-- Slide 2: Diagnóstico invisible -->
+  <section class="card">
+    <h2>El diagnóstico invisible</h2>
+    <p>Las empresas pierden millones en robo hormiga, caducidad y errores humanos.
+    CORE-COLD detecta esas fugas en tiempo real.</p>
+  </section>
+
+  <!-- Slide 3: Prueba de fuego -->
+  <section class="card">
+    <h2>La prueba de fuego</h2>
+    <p>En hardware obsoleto, CORE-COLD se auto-repara en milisegundos y aprende de cada transacción.</p>
+  </section>
+
+  <!-- Slide 4: Salto a la industria -->
+  <section class="card">
+    <h2>El salto a la industria</h2>
+    <p>Si protege desde una consola, imaginen lo que hace en miles de sucursales.
+    CORE-COLD convierte pérdidas en activos financieros.</p>
+  </section>
+
+  <!-- Slide 5: Comparativa financiera -->
+  <section class="card">
+    <h2>Comparativa Anual</h2>
+    <div class="stats-container">
+      <div class="stat-card">
+        <h3>Antes</h3>
+        <p>Robo hormiga: $12M</p>
+        <p>Caducidad: $20M</p>
+        <p>Errores humanos: $18M</p>
+        <p><strong>Total: $50M</strong></p>
+      </div>
+      <div class="stat-card highlight">
+        <h3>Después con CORE-COLD</h3>
+        <p>Recupera $8.4M</p>
+        <p>Recupera $12M</p>
+        <p>Recupera $9M</p>
+        <p><strong>Total recuperado: $29.4M</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>CORE-COLD: De pérdidas invisibles a ganancias visibles</p>
+  </footer>
+</body>
+</html>
