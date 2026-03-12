@@ -1,84 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>CORE-COLD | Panel de Recuperación</title>
-    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body { background: #020202; color: #00ff88; font-family: 'Courier New', monospace; margin: 0; overflow: hidden; }
+        #canvas-container { position: relative; width: 100vw; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        
+        /* Círculo de Carga Industrial */
+        .radar { width: 300px; height: 300px; border: 2px solid #004422; border-radius: 50%; position: absolute; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(1.5); opacity: 0; } }
+
+        .data-stream { font-size: 0.8rem; color: #004422; position: absolute; width: 100%; text-align: center; bottom: 10%; }
+        
+        .recovery-value { font-size: 6rem; font-weight: 900; text-shadow: 0 0 20px #00ff88; z-index: 10; }
+        .label { font-size: 1.2rem; letter-spacing: 5px; color: #fff; margin-bottom: 20px; }
+    </style>
 </head>
 <body>
-    <div class="main-viewport">
-        <div class="content-box">
-            <header class="header-minimal">
-                <h1>CORE-COLD FINANCIAL RECOVERY</h1>
-                <p>MÉXICO - DIVISIÓN RETAIL E INDUSTRIAL</p>
-            </header>
-
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>CONCEPTO DE PÉRDIDA</th>
-                        <th>MONTO ACTUAL</th>
-                        <th>RECUPERACIÓN ESTIMADA</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Robo Hormiga</td>
-                        <td>$12,000,000</td>
-                        <td class="positive" data-target="8400000">+$0</td>
-                    </tr>
-                    <tr>
-                        <td>Caducidad de Producto</td>
-                        <td>$20,000,000</td>
-                        <td class="positive" data-target="12000000">+$0</td>
-                    </tr>
-                    <tr>
-                        <td>Errores Operativos</td>
-                        <td>$18,000,000</td>
-                        <td class="positive" data-target="9000000">+$0</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr class="total-row">
-                        <td>VALOR TOTAL RECUPERADO</td>
-                        <td>$50,000,000</td>
-                        <td class="final-sum" data-target="29400000">$0</td>
-                    </tr>
-                </tfoot>
-            </table>
-
-            <footer class="footer-minimal">
-                <p>Arquitecto de Sistemas: Edmundo Ramírez</p>
-                <p>Origen de Desarrollo: Xbox Environment | Zero Trust Protocol</p>
-            </footer>
-        </div>
+    <div id="canvas-container">
+        <div class="radar"></div>
+        <div class="label">RECONSTRUYENDO ACTIVOS</div>
+        <div class="recovery-value" id="count">$0.0</div>
+        <div class="data-stream" id="stream">INICIANDO PROTOCOLO ZERO TRUST...</div>
     </div>
 
     <script>
-        // MOTOR DE AUDITORÍA EN TIEMPO REAL
-        const formatMoney = (val) => '$' + Math.floor(val).toLocaleString();
+        const target = 29.4;
+        let current = 0;
+        const valEl = document.getElementById('count');
+        const streamEl = document.getElementById('stream');
 
-        const animateNumbers = () => {
-            const elements = document.querySelectorAll('.positive, .final-sum');
-            
-            elements.forEach(el => {
-                const target = parseInt(el.getAttribute('data-target'));
-                let current = 0;
-                const increment = target / 50; // Velocidad de la carga
+        const logs = [
+            "Analizando Robo Hormiga...",
+            "Detectando fugas por caducidad...",
+            "Corrigiendo errores operativos...",
+            "Sincronizando con CORE-COLD Engine...",
+            "Blindando recuperación industrial..."
+        ];
 
-                const update = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        el.innerText = (el.classList.contains('positive') ? '+' : '') + formatMoney(target);
-                        clearInterval(update);
-                    } else {
-                        el.innerText = (el.classList.contains('positive') ? '+' : '') + formatMoney(current);
-                    }
-                }, 30);
-            });
-        };
+        let logIdx = 0;
+        setInterval(() => {
+            streamEl.innerText = logs[logIdx % logs.length];
+            logIdx++;
+        }, 1500);
 
-        window.onload = animateNumbers;
+        const counter = setInterval(() => {
+            current += 0.3;
+            if (current >= target) {
+                valEl.innerText = "$" + target + "M";
+                clearInterval(counter);
+                streamEl.innerText = "RECUPERACIÓN CONSOLIDADA CON ÉXITO";
+                streamEl.style.color = "#fff";
+            } else {
+                valEl.innerText = "$" + current.toFixed(1) + "M";
+            }
+        }, 50);
     </script>
 </body>
 </html>
